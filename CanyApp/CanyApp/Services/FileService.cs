@@ -1,0 +1,26 @@
+﻿using CandyApp.Models;
+using System.Text.Json;
+
+namespace CandyApp.Services;
+
+public class FileService
+{
+    private readonly string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
+    public Data LoadData()
+    { 
+        var jsonData = File.ReadAllText(filePath);
+        var data = JsonSerializer.Deserialize<Data>(jsonData);
+        return data;
+    }
+
+    public void SaveData(List<Product> products, List<Order> orders)
+    {
+        var data = new Data
+        {
+            Products = products,
+            Orders = orders
+        };
+        var jsonData = JsonSerializer.Serialize(data);
+        File.WriteAllText(filePath, jsonData);
+    }
+}

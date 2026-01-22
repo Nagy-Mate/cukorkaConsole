@@ -1,0 +1,1 @@
+{"Products":[{"Id":1,"Name":"Gummy Bears","Price":3200,"Stock":67},{"Id":3,"Name":"Sour Lollipop","Price":150,"Stock":300},{"Id":4,"Name":"uj","Price":230,"Stock":30}],"Orders":[{"Id":1,"Date":"2024-05-20T14:30:00Z","Items":[{"ProductId":1,"Name":"Gummy Bears","Quantity":2,"UnitPrice":450},{"ProductId":3,"Name":"Sour Lollipop","Quantity":5,"UnitPrice":150}],"TotalAmount":1650}]}
