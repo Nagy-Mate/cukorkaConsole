@@ -6,12 +6,22 @@ public class ProductService
 {
     public void ListProducts(List<Product> products)
     {
-        Console.WriteLine("");
+        Console.WriteLine("Termékek: ");
         products.ForEach(product =>
         {
-            Console.WriteLine($"Product ID: {product.Id}, Name: {product.Name}, Price: {product.Price}Ft, Available Stock: {product.Stock} ");
+            Console.WriteLine($"\tProduct ID: {product.Id}, Name: {product.Name}, Price: {product.Price}Ft, Available Stock: {product.Stock} ");
         });
     }
+
+    public void ListAvailableProducts(List<Product> products)
+    {
+        Console.WriteLine("Elérhető termékek: ");
+        products.Where(p => p.Stock > 0).ToList().ForEach(product =>
+        {
+            Console.WriteLine($"\tProduct ID: {product.Id}, Name: {product.Name}, Price: {product.Price}Ft, Available Stock: {product.Stock} ");
+        });
+    }
+
 
     public void CreateProduct(List<Product> products)
     {

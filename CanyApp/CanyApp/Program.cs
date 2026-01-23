@@ -14,7 +14,7 @@ var running = true;
 while (running)
 {
 
-    Console.Write("\nÖsszes Termék[1], Új termék hozzása[2], Termék Törlés[3], Termék Frissítése[4], Kilép és Mentés[0]: ");
+    Console.Write("\nÖsszes Termék[1], Új termék hozzása[2], Termék Törlés[3], Termék Frissítése[4], Rendelés[5], Összes Rendelés[6], Kilép és Mentés[0]: ");
     var checkChoice = int.TryParse(Console.ReadLine(), out int choice );
     if(checkChoice)
     {
@@ -35,6 +35,12 @@ while (running)
                 break;
             case 4:
                 productService.UpdateProduct(products);
+                break;
+            case 5:
+                orderService.CreateOrder(orders, products);
+                break;
+            case 6:
+                orderService.ListOrders(orders);
                 break;
             default:
                 break;
