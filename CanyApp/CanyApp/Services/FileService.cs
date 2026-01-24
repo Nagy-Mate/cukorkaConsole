@@ -5,7 +5,7 @@ namespace CandyApp.Services;
 
 public class FileService
 {
-    private readonly string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
+    private readonly string filePath =  "data.json";
     public Data LoadData()
     { 
         var jsonData = File.ReadAllText(filePath);

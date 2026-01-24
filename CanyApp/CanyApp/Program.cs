@@ -1,10 +1,9 @@
 ﻿using CandyApp.Services;
 
-
-
 var fileService = new FileService();
 var productService = new ProductService();
 var orderService = new OrderService();
+var reportService = new ReportService();
 
 var products = fileService.LoadData().Products;
 var orders = fileService.LoadData().Orders;
@@ -14,7 +13,7 @@ var running = true;
 while (running)
 {
 
-    Console.Write("\nÖsszes Termék[1], Új termék hozzása[2], Termék Törlés[3], Termék Frissítése[4], Rendelés[5], Összes Rendelés[6], Kilép és Mentés[0]: ");
+    Console.Write("\nÖsszes Termék[1], Új termék hozzása[2], Termék Törlés[3], Termék Frissítése[4], Rendelés[5], Összes Rendelés[6], Reportok[7], Kilép és Mentés[0]: ");
     var checkChoice = int.TryParse(Console.ReadLine(), out int choice );
     if(checkChoice)
     {
@@ -28,6 +27,7 @@ while (running)
                 productService.CreateProduct(products);
                 break;
             case 1:
+                Console.Clear();
                 productService.ListProducts(products);
                 break;
             case 3:
@@ -40,7 +40,14 @@ while (running)
                 orderService.CreateOrder(orders, products);
                 break;
             case 6:
+                Console.Clear();
                 orderService.ListOrders(orders);
+                break;
+            case 7:
+                Console.Clear();
+                reportService.TotalRevenue(orders);
+                reportService.MostSoldProduct(orders);  
+                reportService.NotSoldProducts(orders, products);
                 break;
             default:
                 break;

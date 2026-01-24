@@ -10,7 +10,7 @@ public class OrderService
         Console.WriteLine("Rendelések: ");
         orders.ForEach(order =>
         {
-            Console.WriteLine($"Order ID: {order.Id}, Date: {order.Date}, Total Amount: {order.TotalAmount}Ft \n Items: ");
+            Console.WriteLine($"\nOrder ID: {order.Id}, Date: {order.Date}, Total Amount: {order.TotalAmount}Ft \n Items: ");
             order.Items.ForEach(item => 
             { 
                 Console.WriteLine($"\tName: {item.Name}, Unit Price: {item.UnitPrice}, Quantity: {item.Quantity}"); 
@@ -61,6 +61,7 @@ public class OrderService
                     {
                         var orderItem = new OrderItem
                         {
+                            ProductId = selectedProduct.Id,
                             Name = selectedProduct.Name,
                             UnitPrice = selectedProduct.Price,
                             Quantity = quantity
